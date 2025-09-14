@@ -1,80 +1,194 @@
-# Pedalaih: Plataforma Comunitária de Bicicletas Compartilhadas
+# 🌿 EcoGuia Fortaleza - API
 
-![Status do Projeto](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+API de integração para um assistente virtual de sustentabilidade urbana, oferecendo orientações sobre práticas sustentáveis, descarte correto de resíduos e agricultura urbana na cidade de Fortaleza.
 
-Repositório central do projeto **Pedalaih**, uma plataforma de integração para um sistema de bicicletas compartilhadas com atualização comunitária.
+## 📋 Índice
 
-### 1. Visão Geral e Objetivos
+- [Objetivo](#-objetivo)
+- [Problema Social](#-problema-social)
+- [Descrição da Solução](#-descrição-da-solução)
+- [Sistemas Integrados](#-sistemas-integrados)
+- [Arquitetura da API](#-arquitetura-da-api)
+- [Funcionalidades](#-funcionalidades)
+- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+- [Como Executar](#-como-executar)
+- [Documentação da API](#-documentação-da-api)
+- [Testes](#-testes)
+- [Relacionamento com ODS 11](#-relacionamento-com-ods-11)
+- [Equipe](#-equipe)
+- [Licença](#-licença)
 
-O objetivo deste trabalho é projetar e desenvolver uma API de integração para um sistema de bicicletas compartilhadas, focando em gerar impacto social positivo através da tecnologia. A solução funcional permite a comunicação entre diferentes sistemas (cliente e servidor) através de uma API RESTful, que servirá de base para um futuro sistema multiplataforma.
+## 🎯 Objetivo
 
-Os principais objetivos do sistema são:
-* Aumentar a confiabilidade das informações de disponibilidade de bicicletas.
-* Incentivar o uso de transporte sustentável.
-* Fomentar o engajamento comunitário na manutenção de um bem coletivo.
-* Aplicar conceitos de arquitetura de software e integração de sistemas em um projeto prático.
+Desenvolver uma API de integração que permita a comunicação entre sistemas heterogêneos para promover práticas sustentáveis em Fortaleza, facilitando o acesso à informação sobre descarte correto, agricultura urbana e conservação ambiental.
 
-### 2. O Problema e a Justificativa
+## 🌍 Problema Social
 
-A mobilidade urbana em grandes cidades enfrenta o desafio da baixa adesão a transportes sustentáveis. Um dos principais obstáculos nos sistemas de bicicletas compartilhadas é a falta de informação confiável e em tempo real sobre a disponibilidade de bicicletas, o que gera frustração e desconfiança nos usuários. Este problema vai contra os princípios do **ODS 11: Cidades e Comunidades Sustentáveis**, que visa tornar os assentamentos humanos mais inclusivos, seguros, resilientes e sustentáveis. A solução proposta aborda diretamente este desafio.
+Fortaleza enfrenta desafios significativos na gestão de resíduos sólidos e na conscientização ambiental da população. Muitos materiais recicláveis são descartados incorretamente devido à falta de informação sobre pontos de coleta e procedimentos adequados, impactando negativamente o meio ambiente e a saúde pública.
 
-### 3. A Solução Proposta e Escopo
+## 💡 Descrição da Solução
 
-A solução é a **Pedalaih**, uma plataforma onde a própria comunidade atualiza os dados de disponibilidade das bicicletas. Através de um aplicativo, o usuário poderá informar em tempo real quantas bicicletas estão em uma estação, criando um sistema de dados mais dinâmico e preciso.
+O EcoGuia Fortaleza é uma API que integra inteligência artificial com dados contextualizados para fornecer orientações personalizadas sobre:
+- Práticas de descarte correto de resíduos
+- Técnicas de agricultura urbana
+- Informações sobre pontos de coleta em Fortaleza
+- Dicas de sustentabilidade adaptadas ao contexto local
 
-**Escopo do Projeto (Etapa Atual):**
-* **ETAPA 1:** Desenvolvimento e implementação de uma API RESTful funcional, com no mínimo dois endpoints, testes unitários e tratamento de erros.
+## 🔗 Sistemas Integrados
 
-### 4. Arquitetura da Solução
+1. **Sistema de Backend Proprietário** - API desenvolvida em Node.js/Express
+2. **Sistema de Inteligência Artificial** - Groq Cloud API (LLM)
+3. **Sistema de Dados Climáticos** - OpenWeatherMap API (opcional)
 
-A arquitetura do sistema é baseada no modelo Cliente-Servidor. Uma API RESTful central (Backend) gerencia todas as regras de negócio e a comunicação com o banco de dados. Os Clientes (Frontend) consomem essa API para exibir e enviar informações.
+## 🏗️ Arquitetura da API
 
-**[INSERIR DIAGRAMA DA ARQUITETURA AQUI]**
-*(Um diagrama visual mostrando o fluxo: Cliente Mobile/Web -> API Backend -> Banco de Dados)*
+```mermaid
+graph TD
+    A[Cliente/Frontend] --> B[API EcoGuia Fortaleza]
+    B --> C[Groq Cloud API]
+    B --> D[OpenWeatherMap API]
+    B --> E[Banco de Dados]
+    
+    style A fill:#cde4ff
+    style B fill:#ffd8b4
+    style C fill:#d4edda
+    style D fill:#ffeeba
+    style E fill:#f8d7da
+```
 
-### 5. Tecnologias Propostas
+## ⚙️ Funcionalidades
 
-| Categoria          | Tecnologia              |
-| :----------------- | :---------------------- |
-| **Backend (API)** | Node.js, Express.js     |
-| **Frontend Web** | Html, JavaScript, Bootstrap      |
-| **Banco de Dados** | MySql              |
-| **Testes** | Jest, Supertest         |
-| **Documentação** | Postman                 |
+- **Chatbot de Sustentabilidade**: Responde perguntas sobre práticas ambientais
+- **Health Check**: Verificação do status da API
+- **Tratamento de Erros**: Respostas padronizadas para diferentes cenários de erro
+- **Logs de Operação**: Registro das atividades da API
 
-### 6. Documentação da API (Endpoints)
+## 🛠️ Tecnologias Utilizadas
 
-A seguir, as principais rotas da API desenvolvida.
+- **Node.js** - Ambiente de execução JavaScript
+- **Express.js** - Framework web para Node.js
+- **Groq SDK** - Integração com API de linguagem natural
+- **Jest** - Framework de testes
+- **Supertest** - Testes de integração HTTP
+- **dotenv** - Gerenciamento de variáveis de ambiente
 
-| Verbo | Endpoint                  | Descrição                                        | Autenticação? |
-| :---- | :------------------------ | :----------------------------------------------- | :------------ |
-| `POST`| `/users`                  | Cadastra um novo usuário.                        | Não           |
-| `POST`| `/login`                  | Autentica um usuário e retorna um token JWT.     | Não           |
-| `GET` | `/stations`               | Lista todas as estações de bicicletas.           | Não           |
-| `GET` | `/stations/:id`           | Retorna os detalhes de uma estação específica.   | Não           |
-| `POST`| `/stations/:id/update`    | Atualiza a contagem de bicicletas de uma estação.| **Sim** |
+## 🚀 Como Executar
 
-### 7. Como Executar e Testar o Projeto
+### Pré-requisitos
 
-Siga as instruções abaixo para executar a API localmente e realizar testes.
-**Pré-requisitos:**
-* Node.js (v18+)
-* Git
-* Postman ou Insomnia
+- Node.js 16+
+- npm ou yarn
+- Chave de API da Groq Cloud
 
+### Instalação
+
+1. Clone o repositório:
 ```bash
-# 1. Clone o repositório
-git clone [https://github.com/anyeleventura/pedalaih.git](https://github.com/anyeleventura/pedalaih.git)
-cd pedalaih
+git clone https://github.com/seu-usuario/ecoguia-fortaleza-api.git
+cd ecoguia-fortaleza-api
+```
 
-# 2. Instale as dependências
+2. Instale as dependências:
+```bash
 npm install
+```
 
-# 3. Configure as variáveis de ambiente
-# Renomeie o arquivo .env.example para .env e preencha com suas credenciais do banco de dados
+3. Configure as variáveis de ambiente:
+```bash
+cp .env.example .env
+# Edite o arquivo .env com suas chaves de API
+```
 
-# 4. Inicie a aplicação em modo de desenvolvimento
+4. Execute a API:
+```bash
+# Desenvolvimento
 npm run dev
 
-# 5. Rode os testes unitários
+# Produção
+npm start
+```
+
+5. Execute os testes:
+```bash
 npm test
+```
+
+## 📡 Documentação da API
+
+### Endpoints
+
+#### POST /api/ask
+Recebe perguntas sobre sustentabilidade e retorna respostas contextualizadas.
+
+**Request:**
+```json
+{
+  "question": "Como descartar óleo de cozinha em Fortaleza?"
+}
+```
+
+**Response:**
+```json
+{
+  "resposta": "Em Fortaleza, você pode descartar óleo de cozinha usado em...",
+  "status": "success"
+}
+```
+
+#### GET /api/health
+Verifica o status da API.
+
+**Response:**
+```json
+{
+  "status": "OK",
+  "timestamp": "2024-09-25T10:00:00.000Z",
+  "version": "1.0.0"
+}
+```
+
+### Códigos de Status HTTP
+
+- `200` - Sucesso
+- `400` - Requisição inválida
+- `500` - Erro interno do servidor
+
+## 🧪 Testes
+
+A API inclui testes unitários e de integração:
+
+```bash
+# Executar todos os testes
+npm test
+
+# Executar testes com coverage
+npm run test:coverage
+```
+
+## 🌱 Relacionamento com ODS 11
+
+Este projeto contribui diretamente com o **Objetivo de Desenvolvimento Sustentável 11 - Cidades e Comunidades Sustentáveis** através de:
+
+- **Meta 11.6**: Reduzir o impacto ambiental negativo per capita das cidades, prestando especial atenção à qualidade do ar, gestão de resíduos municipais e outros
+- **Meta 11.b**: Aumentar o número de cidades e assentamentos humanos adotando e implementando políticas e planos integrados para a inclusão, a eficiência dos recursos, mitigação e adaptação às mudanças climáticas
+
+A API promove práticas sustentáveis de gestão de resíduos e conscientização ambiental, alinhando-se com as metas de tornar as cidades mais inclusivas, seguras, resilientes e sustentáveis.
+
+## 👥 Equipe
+
+| Nome | Matrícula | Função |
+|------|-----------|--------|
+| Anyele Ventura Lima | 2323813 | Desenvolvimento Backend |
+| Isadora Ianne Aguiar de Castro  |  2323864 | Integração de APIs |
+| Silvanir Nascimento dos Santos | 2326784 | Documentação |
+| Luiz Henrique | 202400004 | Testes |
+
+## 📄 Licença
+
+Este projeto é desenvolvido para fins acadêmicos como parte da disciplina Técnicas de Integração de Sistemas (N703).
+
+---
+
+**Entrega**: 29/09/2025  
+**Disciplina**: Técnicas de Integração de Sistemas (N703)  
+**Instituição**: [Unifor - Universidaade de Fortaleza]
