@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "685a5b74-1f22-4edf-a446-a3e4adc31861",
+		"name": "EcoGuia Fortaleza",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34603589"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/api/health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/health",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"health"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'localhost:3000/api/health'"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/ask",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"question\": \"Como descartar óleo de cozinha em Fortaleza?\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/ask",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ask"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'localhost:3000/api/ask' \\\r\n--header 'Content-Type: application/json' \\\r\n--data '{\r\n  \"question\": \"Como descartar óleo de cozinha em Fortaleza?\"\r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/weather",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/weather",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"weather"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'localhost:3000/api/weather'"
+			},
+			"response": []
+		}
+	]
+}
