@@ -3,8 +3,8 @@ require("./config/dotenv");
 
 const express = require("express");
 const healthController = require("./controllers/healthController");
-const askController = require('./controllers/askController');
-const weatherController = require('./controllers/weatherController');
+const askController = require("./controllers/askController");
+const weatherController = require("./controllers/weatherController");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,8 +14,8 @@ app.use(express.json());
 
 // --- ROTAS DA API ---
 app.get("/api/health", healthController.checkHealth);
-app.post('/api/ask', askController.getSustainabilityAnswer);
-app.get('/api/weather', weatherController.getWeatherData);
+app.post("/api/ask", askController.getSustainabilityAnswer);
+app.get("/api/weather", weatherController.getWeatherData);
 
 // Middleware para tratamento de rotas não encontradas (404)
 app.use((req, res, next) => {
@@ -30,9 +30,12 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: "Ocorreu um erro interno no servidor." });
 });
 
-app.listen(port, () => {
-  console.log(`Servidor EcoGuia Fortaleza rodando em http://localhost:${port}`);
-});
-
+if (process.env.NODE_ENV !== "test") {
+  app.listen(port, () => {
+    console.log(
+      `Servidor EcoGuia Fortaleza rodando em http://localhost:${port}`
+    );
+  });
+}
 // Exporta o app para ser usado nos testes
 module.exports = app;
