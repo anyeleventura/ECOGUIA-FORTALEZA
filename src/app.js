@@ -3,6 +3,7 @@ require("./config/dotenv");
 
 const express = require("express");
 const healthController = require("./controllers/healthController");
+const askController = require('./controllers/askController');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,6 +13,7 @@ app.use(express.json());
 
 // --- ROTAS DA API ---
 app.get("/api/health", healthController.checkHealth);
+app.post('/api/ask', askController.getSustainabilityAnswer);
 
 // Middleware para tratamento de rotas não encontradas (404)
 app.use((req, res, next) => {
