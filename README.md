@@ -147,6 +147,21 @@ Verifica o status da API.
 }
 ```
 
+#### GET /api/weather
+Busca informações do clima de Fortaleza.
+
+**Response:**
+```json
+{
+    "temp": 29.97,
+    "feels_like": 32.39,
+    "description": "nuvens dispersas",
+    "city": "Fortaleza",
+    "sustainability_tip": "Ótimo dia para praticar sustentabilidade! Considere usar transporte alternativo.",
+    "message": "Dados climáticos de Fortaleza"
+}
+```
+
 ### Códigos de Status HTTP
 
 - `200` - Sucesso
@@ -181,7 +196,7 @@ A API promove práticas sustentáveis de gestão de resíduos e conscientizaçã
 | Anyele Ventura Lima | 2323813 | Desenvolvimento Backend |
 | Isadora Ianne Aguiar de Castro  |  2323864 | Integração de APIs |
 | Silvanir Nascimento dos Santos | 2326784 | Documentação |
-| Luiz Henrique | 202400004 | Testes |
+| Luiz Henrique Lopes | 2326254 | Testes |
 
 ## 📄 Licença
 
